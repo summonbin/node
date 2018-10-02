@@ -10,6 +10,7 @@ BASE_URL="https://raw.githubusercontent.com/summonbin/node"
 
 INSTALL_PATH=$1
 SCHEME_PATH=$2
+DEFAULT_CACHE_PATH=$3
 
 
 ######################
@@ -27,5 +28,11 @@ curl -L "$BASE_URL/$VERSION/scripts/run.sh" -o "$INSTALL_PATH/$DRIVER_NAME/run.s
 ######################
 
 mkdir -p $SCHEME_PATH/$DRIVER_NAME/nvm
-echo "$INSTALL_PATH/cache/$DRIVER_NAME/nvm" > $SCHEME_PATH/$DRIVER_NAME/nvm/cache
-echo "v0.33.11" > $SCHEME_PATH/$DRIVER_NAME/nvm/version
+if [ ! -f "$SCHEME_PATH/$DRIVER_NAME/nvm/cache" ]
+then
+  echo "$DEFAULT_CACHE_PATH/$DRIVER_NAME/nvm" > "$SCHEME_PATH/$DRIVER_NAME/nvm/cache"
+fi
+if [ ! -f "$SCHEME_PATH/$DRIVER_NAME/nvm/version" ]
+then
+  echo "v0.33.11" > "$SCHEME_PATH/$DRIVER_NAME/nvm/version"
+fi
