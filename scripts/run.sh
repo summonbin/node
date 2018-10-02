@@ -24,15 +24,15 @@ BIN_ARGS=${BIN_ARGS[@]}
 #### Setup Node.js ####
 #######################
 
-source $BASE_DIR/setup.sh $CONFIG_DIR $TARGET_NODE_VERSION
+source "$BASE_DIR/setup.sh" "$CONFIG_DIR" "$TARGET_NODE_VERSION"
 
 
 #############################
 #### Execute npm package ####
 #############################
 
-nvm install $TARGET_NODE_VERSION
-npm install -g $PACKAGE_NAME@$TARGET_PACKAGE_VERSION
+nvm install "$TARGET_NODE_VERSION"
+npm install -g "$PACKAGE_NAME@$TARGET_PACKAGE_VERSION"
 if [ -t 1 ]
 then
   $BIN_NAME $BIN_ARGS < /dev/tty

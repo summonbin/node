@@ -18,7 +18,7 @@ BIN_ARGS=${BIN_ARGS[@]}
 #### Setup Node.js ####
 #######################
 
-source $BASE_DIR/setup.sh $CONFIG_DIR $TARGET_NODE_VERSION
+source "$BASE_DIR/setup.sh" "$CONFIG_DIR" "$TARGET_NODE_VERSION"
 
 
 ######################
