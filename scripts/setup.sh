@@ -17,7 +17,7 @@ TARGET_NODE_VERSION=$2
 #### Read config ####
 #####################
 
-NVM_CACHE_DIR=$(<"$CONFIG_DIR/nvm/cache")
+NVM_CACHE_DIR=$( eval "echo $(<"$CONFIG_DIR/nvm/cache")" )
 NVM_VERSION=$(<"$CONFIG_DIR/nvm/version")
 
 
