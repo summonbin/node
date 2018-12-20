@@ -25,7 +25,10 @@ source "$BASE_DIR/setup.sh" "$CONFIG_DIR" "$TARGET_NODE_VERSION"
 #### Execute node ####
 ######################
 
-nvm install "$TARGET_NODE_VERSION"
+if [ $(nvm version) != "$TARGET_NODE_VERSION" ]
+then
+  nvm install "$TARGET_NODE_VERSION"
+fi
 if [ -t 1 ]
 then
   node $BIN_ARGS < /dev/tty

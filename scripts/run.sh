@@ -31,7 +31,10 @@ source "$BASE_DIR/setup.sh" "$CONFIG_DIR" "$TARGET_NODE_VERSION"
 #### Execute npm package ####
 #############################
 
-nvm install "$TARGET_NODE_VERSION"
+if [ $(nvm version) != "$TARGET_NODE_VERSION" ]
+then
+  nvm install "$TARGET_NODE_VERSION"
+fi
 npm install -g "$PACKAGE_NAME@$TARGET_PACKAGE_VERSION"
 if [ -t 1 ]
 then
