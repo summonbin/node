@@ -18,13 +18,17 @@ BIN_ARGS=${BIN_ARGS[@]}
 #### Setup Node.js ####
 #######################
 
-source $BASE_DIR/setup.sh $CONFIG_DIR $TARGET_NODE_VERSION
+source "$BASE_DIR/setup.sh" "$CONFIG_DIR" "$TARGET_NODE_VERSION"
 
 
 ######################
 #### Execute node ####
 ######################
 
+if [ $(nvm version) != "$TARGET_NODE_VERSION" ]
+then
+  nvm install "$TARGET_NODE_VERSION"
+fi
 if [ -t 1 ]
 then
   node $BIN_ARGS < /dev/tty
