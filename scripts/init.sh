@@ -1,6 +1,6 @@
 #!/bin/sh
 DRIVER_NAME="node"
-VERSION="0.1.1"
+VERSION="0.1.2"
 BASE_URL="https://raw.githubusercontent.com/summonbin/node"
 
 
@@ -34,5 +34,5 @@ then
 fi
 if [ ! -f "$SCHEME_PATH/$DRIVER_NAME/nvm/version" ]
 then
-  echo "v0.33.11" > "$SCHEME_PATH/$DRIVER_NAME/nvm/version"
+  echo "v0.34.0" > "$SCHEME_PATH/$DRIVER_NAME/nvm/version"
 fi
