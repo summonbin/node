@@ -11,7 +11,13 @@ PACKAGE_NAME=$4
 TARGET_PACKAGE_VERSION=$5
 
 # Arguments for bin
-BIN_ARGS=("$@")
+BIN_ARGS=()
+
+for i
+do
+  BIN_ARGS+=(\"${i}\")
+done
+
 unset BIN_ARGS[0]
 unset BIN_ARGS[1]
 unset BIN_ARGS[2]
@@ -41,7 +47,7 @@ then
 fi
 if [ -t 1 ]
 then
-  $BIN_NAME $BIN_ARGS < /dev/tty
+  eval $BIN_NAME $BIN_ARGS < /dev/tty
 else
-  $BIN_NAME $BIN_ARGS
+  eval $BIN_NAME $BIN_ARGS
 fi

@@ -8,7 +8,13 @@ CONFIG_DIR=$1
 TARGET_NODE_VERSION=$2
 
 # Arguments for bin
-BIN_ARGS=("$@")
+BIN_ARGS=()
+
+for i
+do
+  BIN_ARGS+=(\"${i}\")
+done
+
 unset BIN_ARGS[0]
 unset BIN_ARGS[1]
 BIN_ARGS=${BIN_ARGS[@]}
@@ -31,7 +37,7 @@ then
 fi
 if [ -t 1 ]
 then
-  node $BIN_ARGS < /dev/tty
+  eval node $BIN_ARGS < /dev/tty
 else
-  node $BIN_ARGS
+  eval node $BIN_ARGS
 fi
