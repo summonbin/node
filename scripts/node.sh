@@ -37,7 +37,7 @@ then
 fi
 if [ -t 1 ]
 then
-  node $BIN_ARGS < /dev/tty
+  eval node $BIN_ARGS < /dev/tty
 else
-  node $BIN_ARGS
+  eval node $BIN_ARGS
 fi

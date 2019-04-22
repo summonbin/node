@@ -47,7 +47,7 @@ then
 fi
 if [ -t 1 ]
 then
-  $BIN_NAME $BIN_ARGS < /dev/tty
+  eval $BIN_NAME $BIN_ARGS < /dev/tty
 else
-  $BIN_NAME $BIN_ARGS
+  eval $BIN_NAME $BIN_ARGS
 fi
