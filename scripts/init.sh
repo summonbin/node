@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 DRIVER_NAME="node"
 VERSION="0.1.3"
 BASE_URL="https://raw.githubusercontent.com/summonbin/node"
